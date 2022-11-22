@@ -10,7 +10,10 @@ services:
       - api
     restart: unless-stopped
   api:
-    image: ghcr.io/gobiz-vinasat/image-php-fpm:7.4.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # image: ghcr.io/gobiz-vinasat/image-php-fpm:7.4.1
     volumes:
       - ${APP_BACKEND_SOURCE}:/var/www/html
     restart: unless-stopped
